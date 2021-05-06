@@ -31,6 +31,7 @@ class TaskService {
   }
   
   async update(id, text, done) {
+    console.log(id, text, done)
     const task = await TaskRepository.update(
       id,
       Format.removeSpecialsCharacters(text),

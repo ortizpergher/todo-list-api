@@ -25,7 +25,7 @@ class TaskController {
 
       return response.json(task);
     } catch (error)  {
-      return response.status(error.status || HttpConstants.BadRequest).json(error);
+      return response.status(errror.status || HttpConstants.BadRequest).json(error);
     }
   }
 
