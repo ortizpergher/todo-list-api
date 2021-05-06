@@ -13,7 +13,7 @@ class TaskController {
 
       return response.json(tasks);
     } catch (error) {
-      return response.status(erros.status || HttpConstants.BadRequest).json(error);
+      return response.status(error.status || HttpConstants.BadRequest).json(error);
     }
   }
 
@@ -25,7 +25,7 @@ class TaskController {
 
       return response.json(task);
     } catch (error)  {
-      return response.status(erros.status || HttpConstants.BadRequest).json(error);
+      return response.status(error.status || HttpConstants.BadRequest).json(error);
     }
   }
 
@@ -37,7 +37,7 @@ class TaskController {
 
       return response.status(HttpConstants.Created).json(task);
     } catch (error) {
-      return response.status(erros.status || HttpConstants.BadRequest).json(error);
+      return response.status(error.status || HttpConstants.BadRequest).json(error);
     }
   }
 
@@ -50,7 +50,7 @@ class TaskController {
 
       return response.json(task);
     } catch (error) {
-      return response.status(erros.status || HttpConstants.BadRequest).json(error);
+      return response.status(error.status || HttpConstants.BadRequest).json(error);
     }
   }
 

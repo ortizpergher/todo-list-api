@@ -25,7 +25,7 @@ class TaskRepository {
   }
 
   async update(id, text, done,) {
-    const task = await Task.update(
+    const data = await Task.update(
       {
         text,
         done,
@@ -36,7 +36,7 @@ class TaskRepository {
       }
     );
 
-    return task[1];
+    return data[1];
   }
 
   async delete(id) {
