@@ -1,4 +1,4 @@
-require('dotenv').config();
+"use strict";require('dotenv').config();
 
 const host = process.env.API_URL;
 const task = require('../app/documentation/task');
