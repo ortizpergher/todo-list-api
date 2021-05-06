@@ -1,0 +1,188 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "TODO List API",
+    "description": "..."
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/tasks": {
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "description": "Rota para buscar as tasks",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "path",
+            "type": "integer",
+            "description": "Limite",
+            "required": true
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "type": "integer",
+            "description": "Número da página",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "NOT_FOUND"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "tasks"
+        ],
+        "description": "Rota para cadastrar uma nova task",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "body",
+            "description": "Descrição da tarefa",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "done",
+            "in": "body",
+            "description": "Tarefa efetuada?",
+            "required": true,
+            "default": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/tasks/{id}": {
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Id da task"
+          }
+        ],
+        "responses": {
+          "404": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "NOT_FOUND"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "tasks"
+        ],
+        "description": "Rota para atualizar uma task",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Id da task"
+          },
+          {
+            "name": "text",
+            "in": "body",
+            "description": "Descrição da tarefa",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "done",
+            "in": "body",
+            "description": "Tarefa efetuada?",
+            "required": true,
+            "default": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "tasks"
+        ],
+        "description": "Rota para deletar uma task",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Id da task"
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {
+    "task": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "ID da task"
+        },
+        "text": {
+          "type": "string",
+          "example": "Texto da task"
+        },
+        "done": {
+          "type": "string",
+          "example": "Se task já foi concluída"
+        }
+      }
+    }
+  },
+  "defaultModelsExpandDepth": -1
+}
